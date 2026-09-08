@@ -1,0 +1,577 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #172554;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    height: 70px;
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 40px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1d4ed8;
+}
+
+
+.logo span {
+    color: #f97316;
+}
+
+
+.nav-right {
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+
+    height: calc(100vh - 70px);
+}
+
+
+/* =========================
+   BOOKING PANEL
+========================= */
+
+.booking-panel {
+    background: white;
+
+    padding: 30px;
+
+    overflow-y: auto;
+
+    border-right: 1px solid #e5e7eb;
+}
+
+
+.booking-panel h1 {
+    font-size: 28px;
+    color: #172554;
+    margin-bottom: 6px;
+}
+
+
+.subtitle {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+
+/* =========================
+   LOCATION BOX
+========================= */
+
+.location-box {
+    display: flex;
+    align-items: center;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    padding: 14px;
+
+    margin-bottom: 12px;
+
+    transition: 0.2s;
+}
+
+
+.location-box:focus-within {
+    border-color: #2563eb;
+}
+
+
+.location-icon {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 12px;
+
+    font-size: 18px;
+}
+
+
+.pickup-icon {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+
+.destination-icon {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+
+.location-content {
+    flex: 1;
+}
+
+
+.location-content label {
+    display: block;
+
+    font-size: 11px;
+
+    color: #64748b;
+
+    margin-bottom: 5px;
+}
+
+
+.location-content input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    font-size: 14px;
+
+    color: #172554;
+
+    background: transparent;
+}
+
+
+/* =========================
+   INSTRUCTION
+========================= */
+
+.map-instruction {
+    background: #eff6ff;
+
+    border-radius: 10px;
+
+    padding: 12px;
+
+    display: flex;
+    gap: 8px;
+
+    font-size: 12px;
+
+    color: #1d4ed8;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   FARE CARD
+========================= */
+
+.fare-card {
+    background: #f8fafc;
+
+    border-radius: 14px;
+
+    padding: 18px;
+
+    margin-bottom: 25px;
+}
+
+
+.fare-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 8px 0;
+
+    font-size: 14px;
+
+    color: #64748b;
+}
+
+
+.fare-row strong {
+    color: #172554;
+}
+
+
+/* =========================
+   RIDE OPTIONS
+========================= */
+
+.section-title {
+    font-size: 16px;
+
+    margin-bottom: 12px;
+
+    color: #172554;
+}
+
+
+.ride-options {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+
+.ride-option {
+    border: 1px solid #e2e8f0;
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.ride-option:hover {
+    border-color: #93c5fd;
+}
+
+
+.ride-option.active {
+    border: 2px solid #2563eb;
+
+    background: #eff6ff;
+}
+
+
+.vehicle {
+    font-size: 27px;
+
+    margin-right: 14px;
+}
+
+
+.ride-option strong {
+    display: block;
+
+    color: #172554;
+
+    margin-bottom: 3px;
+}
+
+
+.ride-option small {
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   BOOK BUTTON
+========================= */
+
+.book-btn {
+    width: 100%;
+
+    border: none;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.book-btn:hover:not(:disabled) {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+
+.book-btn:disabled {
+    background: #cbd5e1;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   STATUS CARD
+========================= */
+
+.status-card {
+    margin-top: 20px;
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+}
+
+
+.status-card.hidden {
+    display: none;
+}
+
+
+.driver-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+
+.driver-avatar {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: #dbeafe;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+}
+
+
+.driver-info strong {
+    display: block;
+
+    margin-bottom: 4px;
+}
+
+
+.driver-info p {
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+.ride-status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
+
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #f59e0b;
+}
+
+
+.eta {
+    font-size: 13px;
+
+    color: #64748b;
+}
+
+
+/* =========================
+   MAP
+========================= */
+
+.map-section {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =========================
+   MAP OVERLAY
+========================= */
+
+.map-overlay {
+    position: absolute;
+
+    top: 20px;
+    left: 20px;
+
+    z-index: 500;
+
+    background: white;
+
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+
+    display: flex;
+
+    gap: 15px;
+
+    font-size: 12px;
+}
+
+
+.map-tip {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+.tip-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+}
+
+
+.pickup-dot {
+    background: #16a34a;
+}
+
+
+.drop-dot {
+    background: #dc2626;
+}
+
+
+/* =========================
+   LOCATION BUTTON
+========================= */
+
+.location-btn {
+    position: absolute;
+
+    bottom: 25px;
+    right: 25px;
+
+    z-index: 500;
+
+    border: none;
+
+    background: white;
+
+    padding: 12px 16px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+    cursor: pointer;
+
+    color: #172554;
+
+    font-weight: 600;
+}
+
+
+.location-btn:hover {
+    background: #f8fafc;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .container {
+        grid-template-columns: 1fr;
+
+        height: auto;
+    }
+
+    .booking-panel {
+        border-right: none;
+    }
+
+    .map-section {
+        height: 500px;
+    }
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+}
