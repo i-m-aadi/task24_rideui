@@ -1,13 +1,3 @@
-/* =====================================================
-   RIDE BOOKING UI
-   ===================================================== */
-
-
-/* =========================
-   MAP INITIALIZATION
-========================= */
-
-// Default location: New Delhi
 const defaultLocation = [28.6139, 77.2090];
 
 const map = L.map("map").setView(defaultLocation, 13);
@@ -24,11 +14,6 @@ L.tileLayer(
     }
 ).addTo(map);
 
-
-/* =========================
-   VARIABLES
-========================= */
-
 let pickup = null;
 let destination = null;
 
@@ -42,10 +27,6 @@ let selectedRide = {
     rate: 8
 };
 
-
-/* =========================
-   DOM ELEMENTS
-========================= */
 
 const pickupText =
     document.getElementById("pickupText");
