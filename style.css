@@ -5,10 +5,43 @@
 }
 
 
+:root {
+    color-scheme: light;
+    --page-background: #f5f7fb;
+    --surface: #ffffff;
+    --surface-muted: #f8fafc;
+    --text: #172554;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --border-subtle: #e5e7eb;
+    --blue-soft: #eff6ff;
+    --blue: #2563eb;
+    --disabled: #cbd5e1;
+    --shadow: rgba(0, 0, 0, 0.12);
+}
+
+
+body[data-theme="dark"] {
+    color-scheme: dark;
+    --page-background: #0f172a;
+    --surface: #172033;
+    --surface-muted: #202b3f;
+    --text: #e5edf9;
+    --text-muted: #a7b4c8;
+    --border: #334155;
+    --border-subtle: #29364c;
+    --blue-soft: #1e3a5f;
+    --blue: #60a5fa;
+    --disabled: #475569;
+    --shadow: rgba(0, 0, 0, 0.35);
+}
+
+
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f5f7fb;
-    color: #172554;
+    background: var(--page-background);
+    color: var(--text);
+    transition: background 0.25s ease, color 0.25s ease;
 }
 
 
@@ -18,7 +51,7 @@ body {
 
 .navbar {
     height: 70px;
-    background: white;
+    background: var(--surface);
 
     display: flex;
     align-items: center;
@@ -26,7 +59,7 @@ body {
 
     padding: 0 40px;
 
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 
@@ -43,8 +76,38 @@ body {
 
 
 .nav-right {
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+
+.theme-toggle {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface-muted);
+    color: var(--text);
+    padding: 8px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+
+.theme-toggle:hover {
+    border-color: var(--blue);
+}
+
+
+.theme-icon {
+    font-size: 16px;
 }
 
 
@@ -65,25 +128,25 @@ body {
 ========================= */
 
 .booking-panel {
-    background: white;
+    background: var(--surface);
 
     padding: 30px;
 
     overflow-y: auto;
 
-    border-right: 1px solid #e5e7eb;
+    border-right: 1px solid var(--border-subtle);
 }
 
 
 .booking-panel h1 {
     font-size: 28px;
-    color: #172554;
+    color: var(--text);
     margin-bottom: 6px;
 }
 
 
 .subtitle {
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 14px;
     margin-bottom: 28px;
 }
@@ -97,7 +160,7 @@ body {
     display: flex;
     align-items: center;
 
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border);
 
     border-radius: 12px;
 
@@ -152,7 +215,7 @@ body {
 
     font-size: 11px;
 
-    color: #64748b;
+    color: var(--text-muted);
 
     margin-bottom: 5px;
 }
@@ -166,7 +229,7 @@ body {
 
     font-size: 14px;
 
-    color: #172554;
+    color: var(--text);
 
     background: transparent;
 }
@@ -177,7 +240,7 @@ body {
 ========================= */
 
 .map-instruction {
-    background: #eff6ff;
+    background: var(--blue-soft);
 
     border-radius: 10px;
 
@@ -188,7 +251,7 @@ body {
 
     font-size: 12px;
 
-    color: #1d4ed8;
+    color: var(--blue);
 
     margin-bottom: 20px;
 }
@@ -199,7 +262,7 @@ body {
 ========================= */
 
 .fare-card {
-    background: #f8fafc;
+    background: var(--surface-muted);
 
     border-radius: 14px;
 
@@ -218,12 +281,12 @@ body {
 
     font-size: 14px;
 
-    color: #64748b;
+    color: var(--text-muted);
 }
 
 
 .fare-row strong {
-    color: #172554;
+    color: var(--text);
 }
 
 
@@ -252,9 +315,9 @@ body {
 
 
 .ride-option {
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border);
 
-    background: white;
+    background: var(--surface);
 
     border-radius: 12px;
 
@@ -280,7 +343,7 @@ body {
 .ride-option.active {
     border: 2px solid #2563eb;
 
-    background: #eff6ff;
+    background: var(--blue-soft);
 }
 
 
@@ -294,14 +357,14 @@ body {
 .ride-option strong {
     display: block;
 
-    color: #172554;
+    color: var(--text);
 
     margin-bottom: 3px;
 }
 
 
 .ride-option small {
-    color: #64748b;
+    color: var(--text-muted);
 
     font-size: 11px;
 }
@@ -320,7 +383,7 @@ body {
 
     border-radius: 12px;
 
-    background: #2563eb;
+    background: var(--blue);
 
     color: white;
 
@@ -342,7 +405,7 @@ body {
 
 
 .book-btn:disabled {
-    background: #cbd5e1;
+    background: var(--disabled);
 
     cursor: not-allowed;
 }
@@ -359,9 +422,9 @@ body {
 
     border-radius: 14px;
 
-    background: #f8fafc;
+    background: var(--surface-muted);
 
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border);
 }
 
 
@@ -406,7 +469,7 @@ body {
 
 
 .driver-info p {
-    color: #64748b;
+    color: var(--text-muted);
 
     font-size: 12px;
 }
@@ -472,13 +535,13 @@ body {
 
     z-index: 500;
 
-    background: white;
+    background: var(--surface);
 
     padding: 10px 14px;
 
     border-radius: 10px;
 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 15px var(--shadow);
 
     display: flex;
 
@@ -529,24 +592,24 @@ body {
 
     border: none;
 
-    background: white;
+    background: var(--surface);
 
     padding: 12px 16px;
 
     border-radius: 10px;
 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 15px var(--shadow);
 
     cursor: pointer;
 
-    color: #172554;
+    color: var(--text);
 
     font-weight: 600;
 }
 
 
 .location-btn:hover {
-    background: #f8fafc;
+    background: var(--surface-muted);
 }
 
 
@@ -572,6 +635,10 @@ body {
 
     .navbar {
         padding: 0 20px;
+    }
+
+    .nav-right > span {
+        display: none;
     }
 
 }
