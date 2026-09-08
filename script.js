@@ -89,6 +89,49 @@ const etaElement =
 const locationBtn =
     document.getElementById("locationBtn");
 
+const themeToggle =
+    document.getElementById("themeToggle");
+
+const themeIcon =
+    themeToggle.querySelector(".theme-icon");
+
+const themeLabel =
+    themeToggle.querySelector(".theme-label");
+
+
+/* =========================
+   THEME
+========================= */
+
+function setTheme(theme) {
+
+    const isDark = theme === "dark";
+
+    document.body.dataset.theme = isDark ? "dark" : "light";
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+    themeToggle.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light theme" : "Switch to dark theme"
+    );
+    themeIcon.textContent = isDark ? "☀" : "☾";
+    themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
+}
+
+
+const savedTheme = localStorage.getItem("ridego-theme");
+
+setTheme(savedTheme === "dark" ? "dark" : "light");
+
+themeToggle.addEventListener("click", function () {
+
+    const nextTheme =
+        document.body.dataset.theme === "dark" ? "light" : "dark";
+
+    setTheme(nextTheme);
+    localStorage.setItem("ridego-theme", nextTheme);
+
+});
+
 
 /* =========================
    CUSTOM MARKER ICONS
