@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ride Booking UI</title>
+
+    <!-- Leaflet CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        crossorigin=""
+    >
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            Ride<span>Go</span>
+        </div>
+
+        <div class="nav-right">
+            <span>🚗 Ride Booking</span>
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <!-- LEFT PANEL -->
+        <section class="booking-panel">
+
+            <h1>Book a Ride</h1>
+            <p class="subtitle">
+                Choose your pickup and destination
+            </p>
+
+
+            <!-- Pickup -->
+            <div class="location-box">
+                <div class="location-icon pickup-icon">
+                    ●
+                </div>
+
+                <div class="location-content">
+                    <label>Pickup Location</label>
+
+                    <input
+                        type="text"
+                        id="pickupText"
+                        placeholder="Click on map to select"
+                        readonly
+                    >
+                </div>
+            </div>
+
+
+            <!-- Destination -->
+            <div class="location-box">
+                <div class="location-icon destination-icon">
+                    ●
+                </div>
+
+                <div class="location-content">
+                    <label>Drop-off Location</label>
+
+                    <input
+                        type="text"
+                        id="dropText"
+                        placeholder="Click on map to select"
+                        readonly
+                    >
+                </div>
+            </div>
+
+
+            <div class="map-instruction">
+                <span>📍</span>
+                <span id="instruction">
+                    Click the map to select pickup location
+                </span>
+            </div>
+
+
+            <!-- Fare Card -->
+            <div class="fare-card">
+
+                <div class="fare-row">
+                    <span>Distance</span>
+                    <strong id="distance">0 km</strong>
+                </div>
+
+                <div class="fare-row">
+                    <span>Estimated Fare</span>
+                    <strong id="fare">₹0</strong>
+                </div>
+
+                <div class="fare-row">
+                    <span>Estimated Time</span>
+                    <strong id="duration">0 min</strong>
+                </div>
+
+            </div>
+
+
+            <!-- Ride Type -->
+            <h3 class="section-title">Choose Ride</h3>
+
+            <div class="ride-options">
+
+                <button
+                    class="ride-option active"
+                    data-type="Bike"
+                    data-rate="8"
+                >
+                    <span class="vehicle">🏍️</span>
+
+                    <div>
+                        <strong>Bike</strong>
+                        <small>Quick & affordable</small>
+                    </div>
+                </button>
+
+
+                <button
+                    class="ride-option"
+                    data-type="Auto"
+                    data-rate="12"
+                >
+                    <span class="vehicle">🛺</span>
+
+                    <div>
+                        <strong>Auto</strong>
+                        <small>Comfortable ride</small>
+                    </div>
+                </button>
+
+
+                <button
+                    class="ride-option"
+                    data-type="Car"
+                    data-rate="18"
+                >
+                    <span class="vehicle">🚗</span>
+
+                    <div>
+                        <strong>Car</strong>
+                        <small>Premium comfort</small>
+                    </div>
+                </button>
+
+            </div>
+
+
+            <!-- Booking Button -->
+            <button
+                id="bookRideBtn"
+                class="book-btn"
+                disabled
+            >
+                Book Ride
+            </button>
+
+
+            <!-- Status -->
+            <div
+                id="statusCard"
+                class="status-card hidden"
+            >
+
+                <div class="driver-info">
+
+                    <div class="driver-avatar">
+                        👨🏻‍✈️
+                    </div>
+
+                    <div>
+                        <strong id="driverName">
+                            Finding driver...
+                        </strong>
+
+                        <p id="driverVehicle">
+                            Please wait
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="ride-status">
+
+                    <div
+                        id="statusDot"
+                        class="status-dot"
+                    ></div>
+
+                    <span id="rideStatus">
+                        Ride Requested
+                    </span>
+
+                </div>
+
+
+                <div class="eta">
+                    ETA:
+                    <strong id="eta">
+                        --
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MAP -->
+        <section class="map-section">
+
+            <div id="map"></div>
+
+            <div class="map-overlay">
+
+                <div class="map-tip">
+                    <span class="tip-dot pickup-dot"></span>
+                    Pickup
+                </div>
+
+                <div class="map-tip">
+                    <span class="tip-dot drop-dot"></span>
+                    Drop-off
+                </div>
+
+            </div>
+
+            <button
+                id="locationBtn"
+                class="location-btn"
+            >
+                📍 Use My Location
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- Leaflet JS -->
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        crossorigin=""
+    ></script>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
